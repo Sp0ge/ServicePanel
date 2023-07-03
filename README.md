@@ -1,6 +1,3 @@
-
-![Logo](https://sp0ge.ru/favicon.ico) 
-
 # ServicePanel
 ### Web panel with your services for the home lab
 ## Installation
