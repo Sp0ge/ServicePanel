@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% block head %}
+
+    {% endblock %}
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/navbar.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/content.css') }}">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <nav>
+        <div class="menu-icon">
+           <span class="fas fa-bars"></span>
+        </div>
+        <div class="logo">
+           [ Сервисы ]
+        </div>
+        <div class="nav-items">
+           <li><a href="{{url_for('index.main')}}">Главная</a></li>
+           {%if user.is_anonymous %}
+           <li><a href="{{url_for('index.log')}}">Вход</a></li>
+           {% else %}
+           <li><a href="{{url_for('index.app_add')}}">Добавить</a></li>
+           <li><a href="{{url_for('index.out')}}">Выйти</a></li>
+           {% endif %}
+
+        </div>
+        <div class="search-icon">
+           <span class="fas fa-search"></span>
+        </div>
+        <div class="cancel-icon">
+           <span class="fas fa-times"></span>
+        </div>
+        <form method="POST" action="/index">
+           <input name="search" type="search" class="search-data" placeholder="Поиск" required>
+           <button type="submit" class="fas fa-search"></button>
+        </form>
+     </nav>
+     <div class="content">
+        {% block content %}
+
+        {% endblock %}
+     </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/login.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+
+
+<div class="login">
+    <h2 class="active"> sign in </h2>
+  
+    <h2 class="nonactive"> sign up </h2>
+    <form action="" method="POST">
+        {{ form.csrf_token }}
+        {{ form.username.label }}
+        <br>
+        {{ form.username(size=20) }}
+        <br>
+        {{ form.password.label }}
+        <br>
+        {{ form.password(size=20, type="password") }}
+        <br>
+        {{ form.remember_me.label }}
+        {{ form.remember_me}}
+        <br>
+        {{ form.submit()}}
+    </form>
+  
+  </div>
+
+
+        
+
+{% endblock %}

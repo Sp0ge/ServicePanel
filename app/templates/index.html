@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="grid">
+    {%for app in services%}
+    <div class="grid__item">
+        <div class="card"><img class="card__img" src="{{app.img_url}}">
+            <div class="card__content">
+                <h1 class="card__header">{{app.title}}</h1>
+                <p class="card__text">{{app.description}}</p>
+                <a href="{{app.url}}"><button class="card__btn">Перейти</button></a>
+                {%if user.is_authenticated %}
+                <br>
+                <a href="/app/del/{{app.id}}"><button class="card__btn">Удалить</button></a>
+                {%endif%}
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+
+{% endblock %}

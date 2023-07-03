@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+
+{%if user.is_authenticated %}
+<a href="/app/settings/reset"><button>RESET ALL</button></a>
+{%else%}
+<form method="POST" action="">
+    {{ form.csrf_token }}
+    {{ form.username.label }} {{ form.username(size=20) }}
+    {{ form.password.label }} {{ form.password(size=20) }}
+    {{ form.password_confirm.label }} {{ form.password_confirm(size=20) }}
+    {{ form.submit.label }} {{ form.submit(size=20) }}
+</form>
+{%endif%}
+
+{% endblock %}

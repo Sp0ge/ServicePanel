@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/login.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+
+
+<div class="login">
+    <h2 class="active"> Добавить </h2>
+  
+    <h2 class="nonactive">Сервис</h2>
+    <form action="" method="POST">
+        {{ form.csrf_token }}
+        <br>
+        {{ form.title.label }} {{ form.title(size=20,autocomplete="off") }}
+        <br>
+        {{ form.description.label }} {{ form.description(size=20,autocomplete="off") }}
+        <br>
+        {{ form.url.label }} {{ form.url(size=20,autocomplete="off") }}
+        <br>
+        {{ form.img_url.label }} {{ form.img_url(size=20,autocomplete="off") }}
+        <br>
+        {{ form.submit }}
+    </form>
+  
+  </div>
+
+
+        
+
+{% endblock %}
+    
